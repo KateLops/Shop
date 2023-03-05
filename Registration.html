@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Registration.css">
+    <link type="image/x-icon" href="Resources/Logo.png" rel="shortcut icon">
+    <title>Registration</title>
+</head>
+<body>
+    <div class="All">
+        <img src="Resources/switch.png" alt="registration">
+        <h1>Register your account</h1>
+        
+        <form>
+            
+            <div class="group">      
+                <input name="nm" id="nm" type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Name</label>
+              </div>
+
+            <div class="group">      
+              <input name="lg" id="lg" type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Login</label>
+            </div>
+              
+            <div class="group">      
+              <input name="pw" id="pw" type="text" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Password</label>
+            </div>
+
+            <div class="group">      
+                <input name="pw" id="rpw" type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label> Repeat Password</label>
+              </div>
+            
+          </form>
+          <button class="btr" id="btr">Registration</button>
+          <button class="btr" id="btbtl">Back to Login</button>
+          <p id="mes"></p>
+          <script src="Registration.js"></script>
+          
+    </div>
+</body>
+</html>
