@@ -11,32 +11,39 @@ let fmes = document.querySelector("#mes")
 BtLogin.addEventListener("click",json)
 
 function json(json){
-    fetch('https://dummyjson.com/users')
+
+    let lg = flg.value;
+    let pw = fpw.value;
+
+    let jsonUs;
+
+    fetch('https://dummyjson.com/auth/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            username: lg,
+            password: pw,
+        })
+    })
     .then((response) => response.json())
     .then((json) => login(json));
 }
 
 function login(json) {
 
-   
+    jsonUs = json;
+    
     let arrProduct = json.users;
     console.log(arrProduct)
 
-    let lg = flg.value;
-    let pw = fpw.value;
-
-    for (const user of arrProduct){
-       
-        if(lg == user.username && pw == user.password)
-        {
-            document.location.href = "Shop.html"
-            localStorage.setItem('nickname', user.username);
-            fmes.innerHTML = ""
-            break;
-        }
-        else
-        {
-            fmes.innerHTML = "Unknown User"
-        }
-        }
+    if(json.message == "Invalid credentials"){
+        fmes.innerHTML = "Unknown User"
+    }
+    else{
+        fmes.innerHTML = ""
+        localStorage.setItem('token', jsonUs.token)
+        localStorage.setItem('id', jsonUs.id)
+        document.location.href = "Shop.html"
+    }
+    
 }
